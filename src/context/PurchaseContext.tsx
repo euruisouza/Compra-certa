@@ -35,6 +35,8 @@ import {
   type BudgetStatusInfo,
 } from '../utils/money.ts';
 import confetti from 'canvas-confetti';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, firestore } from '../firebase/config.ts';
 
 export type TabType = 'orcamento' | 'lista' | 'carrinho' | 'historico';
 
@@ -392,6 +394,24 @@ export function PurchaseProvider({ children }: { children: ReactNode }) {
       snapshot.purchase,
       ...prev.filter((p) => p.id !== snapshot.purchase.id),
     ]);
+
+    // Sync to Firestore if authenticated
+    try {
+      if (auth.currentUser) {
+        const purchaseDocRef = doc(firestore, 'users', auth.currentUser.uid, 'purchases', snapshot.purchase.id);
+        await setDoc(purchaseDocRef, {
+          id: snapshot.purchase.id,
+          userId: auth.currentUser.uid,
+          name: snapshot.purchase.name || 'Compra Finalizada',
+          budgetCents: snapshot.purchase.budgetCents,
+          status: 'completed',
+          createdAt: snapshot.purchase.createdAt,
+          completedAt: snapshot.purchase.completedAt || Date.now(),
+        });
+      }
+    } catch (e) {
+      console.warn('Could not sync purchase to Firestore:', e);
+    }
     
     // Celebration confetti!
     try {

@@ -39,12 +39,22 @@ export const LoginView: React.FC<LoginViewProps> = ({ onOpenTutorial }) => {
     } catch (err: unknown) {
       console.error('Google sign-in error:', err);
       const code = (err as { code?: string })?.code;
-      if (code === 'auth/popup-closed-by-user') {
+      const currentHost = typeof window !== 'undefined' ? window.location.hostname : '';
+      if (code === 'auth/unauthorized-domain') {
+        setErrorMessage(
+          `Domínio não autorizado no Firebase Auth (${currentHost}). Adicione este domínio no Firebase Console > Authentication > Configurações > Domínios autorizados.`
+        );
+      } else if (code === 'auth/popup-blocked') {
+        setErrorMessage('O navegador bloqueou a janela pop-up do Google. Permita pop-ups para este site e tente novamente.');
+      } else if (code === 'auth/operation-not-allowed') {
+        setErrorMessage('O provedor de login Google não está ativado no Firebase Console > Authentication > Sign-in method.');
+      } else if (code === 'auth/popup-closed-by-user') {
         setErrorMessage('A janela de autenticação foi fechada antes de concluir.');
       } else if (code === 'auth/cancelled-popup-request') {
         setErrorMessage('Requisição de login cancelada.');
       } else {
-        setErrorMessage('Não foi possível conectar com o Google/Gmail. Tente novamente.');
+        const msg = (err as Error)?.message || 'Erro de autenticação';
+        setErrorMessage(`Não foi possível conectar com o Google/Gmail (${code || msg}). Tente novamente ou use e-mail/senha.`);
       }
     } finally {
       setIsGoogleSubmitting(false);
