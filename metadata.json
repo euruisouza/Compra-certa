@@ -1,0 +1,6 @@
+{
+  "name": "Compra Certa",
+  "description": "Aplicativo para controle de orçamento e gastos em tempo real no supermercado. Saiba quanto ainda pode gastar antes de chegar ao caixa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

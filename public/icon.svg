@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="compraCertaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B4D26" />
+      <stop offset="45%" stop-color="#118447" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BBF7D0" />
+      <stop offset="100%" stop-color="#4ADE80" />
+    </linearGradient>
+    <filter id="cartGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#063219" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background App Badge -->
+  <rect width="512" height="512" rx="120" fill="url(#compraCertaGrad)" />
+
+  <!-- Inner Rings -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#FFFFFF" stroke-opacity="0.12" stroke-width="4" />
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="2" />
+
+  <!-- Shopping Cart with Leaf & Checkmark -->
+  <g transform="translate(62, 70) scale(0.76)" filter="url(#cartGlow)">
+    <!-- Natural leaf in basket -->
+    <path d="M 310 185 C 310 115 365 75 415 75 C 415 135 370 195 310 185 Z" fill="url(#leafGrad)" opacity="0.95" />
+    <path d="M 315 180 Q 360 130 410 80" stroke="#064E3B" stroke-width="5" stroke-linecap="round" fill="none" />
+    <path d="M 295 195 C 255 155 260 105 295 85 C 320 115 320 165 295 195 Z" fill="#86EFAC" opacity="0.9" />
+
+    <!-- Main Cart Frame -->
+    <path d="M 40 85 L 105 85 L 175 355 L 420 355 L 475 160 L 140 160" fill="none" stroke="#FFFFFF" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Handle Grip -->
+    <line x1="28" y1="85" x2="72" y2="85" stroke="#BBF7D0" stroke-width="34" stroke-linecap="round" />
+
+    <!-- Basket Grids -->
+    <line x1="215" y1="165" x2="235" y2="350" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" />
+    <line x1="290" y1="165" x2="305" y2="350" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" />
+    <line x1="365" y1="165" x2="375" y2="350" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" />
+    <line x1="160" y1="235" x2="455" y2="235" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" />
+    <line x1="170" y1="295" x2="435" y2="295" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" />
+
+    <!-- Verification Checkmark Badge -->
+    <circle cx="340" cy="275" r="54" fill="#15803D" stroke="#FFFFFF" stroke-width="12" />
+    <path d="M 315 275 L 333 293 L 368 255" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Wheels -->
+    <circle cx="215" cy="415" r="32" fill="#063219" stroke="#FFFFFF" stroke-width="14" />
+    <circle cx="215" cy="415" r="10" fill="#BBF7D0" />
+    <circle cx="385" cy="415" r="32" fill="#063219" stroke="#FFFFFF" stroke-width="14" />
+    <circle cx="385" cy="415" r="10" fill="#BBF7D0" />
+  </g>
+</svg>

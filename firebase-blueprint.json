@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "User UID from Firebase Auth"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name of the user"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Avatar photo URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Account registration timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Profile last update timestamp"
+        }
+      },
+      "required": ["id", "email"]
+    },
+    "UserPurchase": {
+      "title": "UserPurchase",
+      "description": "User saved purchase session or snapshot",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the purchase"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the owner user"
+        },
+        "name": {
+          "type": "string",
+          "description": "Custom name for the shopping trip"
+        },
+        "budgetCents": {
+          "type": "number",
+          "description": "Total budget in Brazilian Real cents"
+        },
+        "status": {
+          "type": "string",
+          "description": "Purchase status (active, completed, discarded)"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp in milliseconds"
+        },
+        "completedAt": {
+          "type": "number",
+          "description": "Completion timestamp in milliseconds"
+        }
+      },
+      "required": ["id", "userId", "budgetCents", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Stores individual user profile data"
+    },
+    "/users/{userId}/purchases/{purchaseId}": {
+      "schema": "UserPurchase",
+      "description": "Stores user purchases"
+    }
+  }
+}

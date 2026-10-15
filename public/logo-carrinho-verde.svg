@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="carrinhoVerdeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803D"/>
+      <stop offset="60%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0FDF4"/>
+    </linearGradient>
+    <filter id="shadowCart" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#14532D" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded modern shape -->
+  <rect width="512" height="512" rx="128" fill="url(#carrinhoVerdeBg)"/>
+
+  <!-- High-tech retail geometric accent rings -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="6"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#FFFFFF" stroke-opacity="0.06" stroke-width="4"/>
+
+  <!-- Crisp Modern Supermarket Shopping Cart with Checkmark Badge -->
+  <g transform="translate(68, 80) scale(0.74)" filter="url(#shadowCart)">
+    <!-- Cart Handle with ergonomic grip -->
+    <path d="M 40 85 L 105 85 L 175 355 L 420 355 L 475 160 L 140 160" 
+          fill="none" 
+          stroke="#FFFFFF" 
+          stroke-width="30" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Ergonomic handle bar cap in bright contrast -->
+    <line x1="30" y1="85" x2="70" y2="85" stroke="#BBF7D0" stroke-width="34" stroke-linecap="round"/>
+
+    <!-- Dynamic Cart Basket Grid lines (Modern retail precision) -->
+    <path d="M 195 185 L 210 330 M 265 185 L 275 330 M 335 185 L 340 330 M 405 185 L 405 330 M 150 230 L 450 230 M 165 290 L 430 290" 
+          stroke="#DCFCE7" 
+          stroke-width="12" 
+          stroke-linecap="round" 
+          stroke-opacity="0.9"/>
+
+    <!-- Bottom chassis strut -->
+    <path d="M 150 415 L 395 415" 
+          stroke="#FFFFFF" 
+          stroke-width="22" 
+          stroke-linecap="round"/>
+
+    <!-- High performance trolley wheels -->
+    <g transform="translate(185, 440)">
+      <circle cx="0" cy="0" r="36" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="18" fill="#15803D"/>
+      <circle cx="0" cy="0" r="7" fill="#FFFFFF"/>
+    </g>
+    <g transform="translate(370, 440)">
+      <circle cx="0" cy="0" r="36" fill="#FFFFFF"/>
+      <circle cx="0" cy="0" r="18" fill="#15803D"/>
+      <circle cx="0" cy="0" r="7" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Prominent "Certo" Verification Emblem -->
+    <g transform="translate(390, 100)" filter="url(#shadowCart)">
+      <circle cx="0" cy="0" r="74" fill="url(#badgeGrad)"/>
+      <circle cx="0" cy="0" r="62" fill="#16A34A"/>
+      <circle cx="0" cy="0" r="54" fill="#FFFFFF"/>
+      <!-- Precision checkmark -->
+      <path d="M -26 0 L -8 18 L 26 -16" 
+            fill="none" 
+            stroke="#15803D" 
+            stroke-width="15" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
